@@ -137,7 +137,7 @@ video {
   font-family: 'medium';
   border: none;
   padding: 15px 40px;
-  font-size: 18px;
+  font-size: 17px;
   border-radius: 4px;
   cursor: pointer;
   text-transform: uppercase;
@@ -146,4 +146,36 @@ video {
 
 .cta:hover {
   background: #76a517;
+}
+
+.section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-container__inner {
+  max-width: 1000px;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  background: black;
+  color: #fff;
+  font-family: 'regular';
+  padding: 25px;
+  width: 48%;
+  height: 150px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 18px;
 }
