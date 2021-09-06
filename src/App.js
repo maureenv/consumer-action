@@ -1,25 +1,19 @@
-import logo from './images/consumer-action-white.png'
+import logo from './images/logo-green-white.png'
+import video from './images/video.mp4'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="logo" />
-        <p>
-          test this
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <img src={logo} className="logo" alt="logo" />
+      <div className="hero-video">
+        <div className="video-container">
+          <video playsInline autoPlay muted loop src={ video } type="video/mp4"/>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
+
 
 export default App;
