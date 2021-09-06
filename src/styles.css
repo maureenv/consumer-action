@@ -80,7 +80,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 95vh;
   min-height: 600px;
   background: black;
 }
@@ -89,7 +89,7 @@ body {
   overflow: hidden;
   position: absolute;
   width: 100%;
-  height: 90vh;
+  height: 95vh;
 }
 
 video {
@@ -127,7 +127,6 @@ video {
   font-family: 'regular';
   font-size: 25px;
   margin-bottom: 20px;
-  max-width: 650px;
   line-height: 1.4;
 }
 
@@ -160,22 +159,61 @@ video {
   padding: 40px 20px;
 }
 
+.section-heading {
+	font-size: 30px;
+	font-family: 'black';
+	margin-bottom: 20px;
+}
+
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.card {
+.claim-card {
   background: black;
   color: #fff;
   font-family: 'regular';
   padding: 25px;
   width: 48%;
-  height: 150px;
+  height: 250px;
   margin-bottom: 20px;
   line-height: 1.4;
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 18px;
+}
+
+.fact-card {
+	background: #106759;
+	color: #fff;
+	font-family: 'regular';
+	padding: 25px;
+	width: 48%;
+	height: 250px;
+	margin-bottom: 20px;
+	line-height: 1.4;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+.claim {
+	color: #9c3;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-family: 'black';
+	margin-bottom: 5px;
+}
+
+.claim-button {
+	border: none;
+	border-radius: 3px;
+	letter-spacing: 1px;
+	font-family: 'regular';
+	padding: 5px 10px;
+	cursor: pointer;
+	text-transform: uppercase;
+	margin-top: 20px;
 }
