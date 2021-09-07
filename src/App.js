@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Parallax } from 'react-scroll-parallax'
 import styled from '@emotion/styled'
 import logo from './images/logo-green-white.png'
 import video from './images/video.mp4'
@@ -7,6 +8,9 @@ import bg2 from './images/2.jpg'
 import bg3 from './images/3.jpg'
 import bg4 from './images/4.jpg'
 import carton from './images/carton.jpg'
+import cartonS from './images/carton-s.png'
+import cartonM from './images/carton-m.png'
+import cartonL from './images/carton-l.png'
 import './styles.css'
 
 const claims = [
@@ -34,6 +38,21 @@ const claims = [
 
 const App = () => {
   const [showFact, setShowFact] = useState(Array(4).fill(false))
+  const [cartonSPos, setCartonSPos] = useState(0)
+  const [cartonMPos, setCartonMPos] = useState(0)
+  const [cartonLPos, setCartonLPos] = useState(-200)
+
+  useEffect(() => {
+    window.onscroll = () => {
+      if ( window.pageYOffset < 400 ) {
+        setCartonSPos( - window.pageYOffset)
+      }
+      if ( window.pageYOffset > 600 ) {
+      setCartonLPos( window.pageYOffset)
+    }
+      setCartonMPos( window.pageYOffset)
+    }
+  }, []);
 
   const onShowFact = index => {
     const newArray = [...showFact]
@@ -59,8 +78,11 @@ const App = () => {
           <h2>Cartons are marketed as recyclable but treated by recycling programs as garbage...</h2>
           <button className="cta">Learn the truth</button>
         </div>
+        <CartonS scrollPosition={ cartonSPos } src={ cartonS }/>
       </div>
       <SectionContainer bg={ carton }>
+        <CartonM scrollPosition={ cartonMPos } src={ cartonM }/>
+        <CartonL scrollPosition={ cartonLPos } src={ cartonL }/>
         <SectionContainerInner>
           <h2 className="section-heading">Carton claims debunked</h2>
           <div className="cards-container">
@@ -96,24 +118,44 @@ const App = () => {
 
 
 const SectionContainer = styled.div`
+overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(${ props => props.bg }) no-repeat left bottom;
-  background-size: 700px;
+  /* background: url(${ props => props.bg }) no-repeat left bottom;
+  background-size: 700px; */
   position: relative;
   z-index: 1;
-  &:after {
-    content: "";
-    background: #fff;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    opacity: 0.6;
-    z-index: -1;
-  }
+`
+
+const CartonS = styled.img`
+  position: absolute;
+  width: 250px;
+  z-index: 1;
+  transition: 0.5s ease-in-out all;
+  bottom: -100px;
+  transform: ${ props => `translate(0, ${ - props.scrollPosition }px) rotate(${ props.scrollPosition / 5 }deg)`};
+`
+
+const CartonM = styled.img`
+  position: absolute;
+  width: 300px;
+  z-index: 1;
+  left: -20px;
+  filter: blur(2px);
+  bottom: -400px;
+  transition: 1s ease-in-out all;
+  transform: translate(0, ${ props => - (props.scrollPosition/3)}px) rotate(20deg);
+`
+
+const CartonL = styled.img`
+  position: absolute;
+  width: 180px;
+  z-index: 1;
+  right: 20px;
+  bottom: 0;
+  transition: 0.7s ease-in-out all;
+  transform: translate(0, ${ props => - (props.scrollPosition/5)}px) rotate(-20deg) scaleX(-1);
 `
 
 const SectionContainerInner = styled.div`

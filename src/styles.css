@@ -183,3 +183,23 @@ video {
 	text-transform: uppercase;
 	margin-top: 20px;
 }
+
+.carton-m {
+	position: absolute;
+	left: 20px;
+	transform: rotate(20deg);
+}
+
+.carton-m img {
+	width: 250px;
+}
+
+.carton-l {
+	position: absolute;
+	right: 20px;
+	transform: rotate(-20deg) scaleX(-1);
+}
+
+.carton-l img {
+	width: 170px;
+}
