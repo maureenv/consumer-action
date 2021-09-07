@@ -6,6 +6,7 @@ import bg1 from './images/1.jpg'
 import bg2 from './images/2.jpg'
 import bg3 from './images/3.jpg'
 import bg4 from './images/4.jpg'
+import carton from './images/carton.jpg'
 import './styles.css'
 
 const claims = [
@@ -59,8 +60,8 @@ const App = () => {
           <button className="cta">Learn the truth</button>
         </div>
       </div>
-      <div className="section-container">
-        <div className="section-container__inner">
+      <SectionContainer bg={ carton }>
+        <SectionContainerInner>
           <h2 className="section-heading">Carton claims debunked</h2>
           <div className="cards-container">
             { claims.map( (c, i) =>
@@ -81,14 +82,47 @@ const App = () => {
               </Card>
             )}
           </div>
-        </div>
-      </div>
+        </SectionContainerInner>
+      </SectionContainer>
+      <Footer>
+        <a target="_blank" href="https://www.consumer-action.org/">
+          <img src={ logo } alt="consumer action"/>
+        </a>
+        <p>Consumer education and advocacy since 1971</p>
+      </Footer>
     </div>
   )
 }
 
+
+const SectionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(${ props => props.bg }) no-repeat left bottom;
+  background-size: 700px;
+  position: relative;
+  z-index: 1;
+  &:after {
+    content: "";
+    background: #fff;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0.6;
+    z-index: -1;
+  }
+`
+
+const SectionContainerInner = styled.div`
+  max-width: 1000px;
+  width: 100%;
+  padding: 70px 20px;
+`
+
 const Card = styled.div`
-  /*background: ${ props => props.showFact ? '#106759' : 'black' };*/
   background: url( ${ props => props.background }) no-repeat center;
   background-size: cover;
   border-radius: 4px;
@@ -113,11 +147,26 @@ const Card = styled.div`
     right: 0;
     bottom: 0;
     top: 0;
-    background: ${ props => props.showFact ? '#106759' : 'black'};
+    background: ${ props => props.showFact ? 'linear-gradient(-124deg, rgba(16,103,89,1) 0%, rgba(25,47,88,1) 100%)' : 'black'};
     opacity: ${ props => props.showFact ? 1 : 0.8 };
     position: absolute;
     z-index: -1;
   }
 `
+
+const Footer = styled.footer`
+  background: black;
+  text-align: center;
+  padding: 10px;
+  img {
+    width: 150px;
+  }
+  p {
+    color: #fff;
+    font-size: 14px;
+    font-family: 'light';
+  }
+`
+
 
 export default App

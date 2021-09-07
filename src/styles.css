@@ -63,9 +63,14 @@ table {
   src: url('./fonts/Roboto-Light.ttf');
 }
 
+/*
+dark green #106759
+dark blue #192f58
 
+*/
 body {
-
+	display: flex;
+	flex-direction: column;
 }
 
 .logo {
@@ -82,7 +87,8 @@ body {
   align-items: center;
   height: 95vh;
   min-height: 600px;
-  background: black;
+	background: rgb(0,0,0);
+	background: linear-gradient(124deg, rgba(0,0,0,1) 0%, rgba(25,47,88,1) 100%);
 }
 
 .video-container {
@@ -147,18 +153,6 @@ video {
   background: #76a517;
 }
 
-.section-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.section-container__inner {
-  max-width: 1000px;
-  width: 100%;
-  padding: 40px 20px;
-}
-
 .section-heading {
 	font-size: 30px;
 	font-family: 'black';
@@ -169,34 +163,6 @@ video {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-
-.claim-card {
-  background: black;
-  color: #fff;
-  font-family: 'regular';
-  padding: 25px;
-  width: 48%;
-  height: 250px;
-  margin-bottom: 20px;
-  line-height: 1.4;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 18px;
-}
-
-.fact-card {
-	background: #106759;
-	color: #fff;
-	font-family: 'regular';
-	padding: 25px;
-	width: 48%;
-	height: 250px;
-	margin-bottom: 20px;
-	line-height: 1.4;
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-size: 14px;
 }
 
 .claim {
