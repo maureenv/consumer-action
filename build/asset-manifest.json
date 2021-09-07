@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/consumer-action/static/css/main.daeb0bdd.chunk.css",
-    "main.js": "/consumer-action/static/js/main.130432a2.chunk.js",
-    "main.js.map": "/consumer-action/static/js/main.130432a2.chunk.js.map",
+    "main.css": "/consumer-action/static/css/main.630931d9.chunk.css",
+    "main.js": "/consumer-action/static/js/main.ef271651.chunk.js",
+    "main.js.map": "/consumer-action/static/js/main.ef271651.chunk.js.map",
     "runtime-main.js": "/consumer-action/static/js/runtime-main.1863eedb.js",
     "runtime-main.js.map": "/consumer-action/static/js/runtime-main.1863eedb.js.map",
-    "static/js/2.94be8c27.chunk.js": "/consumer-action/static/js/2.94be8c27.chunk.js",
-    "static/js/2.94be8c27.chunk.js.map": "/consumer-action/static/js/2.94be8c27.chunk.js.map",
+    "static/js/2.67cc2cde.chunk.js": "/consumer-action/static/js/2.67cc2cde.chunk.js",
+    "static/js/2.67cc2cde.chunk.js.map": "/consumer-action/static/js/2.67cc2cde.chunk.js.map",
     "static/js/3.57f70939.chunk.js": "/consumer-action/static/js/3.57f70939.chunk.js",
     "static/js/3.57f70939.chunk.js.map": "/consumer-action/static/js/3.57f70939.chunk.js.map",
     "index.html": "/consumer-action/index.html",
-    "static/css/main.daeb0bdd.chunk.css.map": "/consumer-action/static/css/main.daeb0bdd.chunk.css.map",
-    "static/js/2.94be8c27.chunk.js.LICENSE.txt": "/consumer-action/static/js/2.94be8c27.chunk.js.LICENSE.txt",
+    "static/css/main.630931d9.chunk.css.map": "/consumer-action/static/css/main.630931d9.chunk.css.map",
+    "static/js/2.67cc2cde.chunk.js.LICENSE.txt": "/consumer-action/static/js/2.67cc2cde.chunk.js.LICENSE.txt",
     "static/media/1.249807f4.jpg": "/consumer-action/static/media/1.249807f4.jpg",
     "static/media/2.b0cb147e.jpg": "/consumer-action/static/media/2.b0cb147e.jpg",
     "static/media/3.eae74263.jpg": "/consumer-action/static/media/3.eae74263.jpg",
     "static/media/4.6a6d694f.jpg": "/consumer-action/static/media/4.6a6d694f.jpg",
     "static/media/styles.css": "/consumer-action/static/media/Roboto-Regular.a8d6ac03.ttf",
+    "static/media/carton.2611623a.jpg": "/consumer-action/static/media/carton.2611623a.jpg",
     "static/media/video.e7581a9e.mp4": "/consumer-action/static/media/video.e7581a9e.mp4"
   },
   "entrypoints": [
     "static/js/runtime-main.1863eedb.js",
-    "static/js/2.94be8c27.chunk.js",
-    "static/css/main.daeb0bdd.chunk.css",
-    "static/js/main.130432a2.chunk.js"
+    "static/js/2.67cc2cde.chunk.js",
+    "static/css/main.630931d9.chunk.css",
+    "static/js/main.ef271651.chunk.js"
   ]
 }
