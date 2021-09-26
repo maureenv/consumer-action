@@ -12,8 +12,8 @@ import {
 const App = () => {
   return (
     <div>
-      hi
-      <Router>
+      hi this is a test
+      {/*<Router>
         <Switch>
           <Route exact path="/watch">
             <Watch />
@@ -22,7 +22,7 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
-      </Router>
+      </Router>*/}
     </div>
   )
 }
