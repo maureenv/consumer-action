@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Parallax } from 'react-scroll-parallax'
 import styled from '@emotion/styled'
-import logo from './images/logo-green-white.png'
+import logo from './images/ncl.jpg'
 import video from './images/video.mp4'
 import bg1 from './images/1.jpg'
 import bg2 from './images/2.jpg'
@@ -11,7 +11,15 @@ import carton from './images/carton.jpg'
 import cartonS from './images/carton-s.png'
 import cartonM from './images/carton-m.png'
 import cartonL from './images/carton-l.png'
+import hero from './images/hero.jpg'
+import bottle from './images/bottle.png'
 import './styles.css'
+
+const colors = {
+  darkBlue: '#13337a',
+  lightBlue: '#6daedf',
+  red: '#ee2427',
+}
 
 const claims = [
   {
@@ -65,26 +73,26 @@ const App = () => {
     newArray[index] = false
     setShowFact( newArray )
   }
+  
 
   return (
     <div>
-      <img src={logo} className="logo" alt="logo" />
-      <div className="hero-video">
-        <div className="video-container">
-          <video playsInline autoPlay muted loop src={ video } type="video/mp4"/>
-        </div>
-        <div className="hero-copy">
-          <h1>Are cartons actually recyclable?</h1>
-          <h2>Cartons are marketed as recyclable but treated by recycling programs as garbage...</h2>
-          <button className="cta">Learn the truth</button>
-        </div>
-        <CartonS scrollPosition={ cartonSPos } src={ cartonS }/>
-      </div>
+      <HeroSection bg={ hero }>
+        <img src={logo} className="logo" alt="logo" />
+        <HeroSectionInner>
+          <h1><span>Truth About</span> Recycling</h1>
+          <div className="video-container">
+            <video playsInline autoPlay muted loop src={ video } type="video/mp4"/>
+            <img className="background" src={ bottle } alt="National Consumer League"/>
+            <button>Watch Now</button>
+          </div>
+        </HeroSectionInner>
+      </HeroSection>
       <SectionContainer bg={ carton }>
         <CartonM scrollPosition={ cartonMPos } src={ cartonM }/>
         <CartonL scrollPosition={ cartonLPos } src={ cartonL }/>
         <SectionContainerInner>
-          <h2 className="section-heading">Carton claims debunked</h2>
+          <h2 className="section-heading">Recycling claims debunked</h2>
           <div className="cards-container">
             { claims.map( (c, i) =>
               <Card showFact={ showFact[i] } background={ c.bg }>
@@ -107,10 +115,10 @@ const App = () => {
         </SectionContainerInner>
       </SectionContainer>
       <Footer>
-        <a target="_blank" href="https://www.consumer-action.org/">
-          <img src={ logo } alt="consumer action"/>
+        <a target="_blank" href="https://nclnet.org/">
+          National Consumers League
         </a>
-        <p>Consumer education and advocacy since 1971</p>
+        <p>For confidence and safety in the marketplace since 1899.</p>
       </Footer>
     </div>
   )
@@ -126,6 +134,71 @@ overflow: hidden;
   background-size: 700px; */
   position: relative;
   z-index: 1;
+`
+
+const HeroSection = styled.div`
+  background: url( ${ props => props.bg }) no-repeat top;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  .logo {
+    width: 150px;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+  }
+`
+
+const HeroSectionInner = styled.div`
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+  h1 {
+    font-size: 100px;
+    font-family: 'black';
+    color: ${ colors.darkBlue };
+    text-transform: uppercase;
+  }
+  span {
+    color: ${ colors.lightBlue };
+    display: block;
+    font-size: 60px;
+    text-transform: initial;
+  }
+  .video-container {
+    position: relative;
+    width: 700px;
+  }
+  img {
+    width: 100%;
+  }
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateX(0) translateY(-50%);
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+    z-index: 1;
+  }
+  button {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    background: ${ colors.red };
+    border: none;
+    padding: 10px;
+    color: #fff;
+    font-family: 'black';
+    z-index: 100;
+    top: 50%;
+  }
 `
 
 const CartonS = styled.img`
@@ -157,11 +230,17 @@ const CartonL = styled.img`
   transition: 0.7s ease-in-out all;
   transform: translate(0, ${ props => - (props.scrollPosition/5)}px) rotate(-20deg) scaleX(-1);
 `
-
+// https://www.shutterstock.com/image-photo/recycling-bins-paper-plastic-glass-metal-499703881
 const SectionContainerInner = styled.div`
   max-width: 1000px;
   width: 100%;
-  padding: 70px 20px;
+  padding: 100px 20px;
+  .section-heading {
+  	font-size: 30px;
+  	color: ${ colors.darkBlue };
+  	margin-bottom: 20px;
+    font-family: 'black';
+  }
 `
 
 const Card = styled.div`
@@ -182,6 +261,23 @@ const Card = styled.div`
   box-sizing: border-box;
   font-size: ${ props => props.showFact ? '14px' : '18px' };
   transition: 0.2s ease-in-out opacity;
+  .claim {
+  	color: ${ colors.lightBlue };
+  	text-transform: uppercase;
+  	font-size: 12px;
+  	font-family: 'black';
+  	margin-bottom: 5px;
+  }
+  .claim-button {
+  	border: none;
+  	border-radius: 3px;
+  	letter-spacing: 1px;
+  	font-family: 'regular';
+  	padding: 5px 10px;
+  	cursor: pointer;
+  	text-transform: uppercase;
+  	margin-top: 20px;
+  }
   &:after {
     content: '';
     transition: 0.2s ease-in-out opacity;
@@ -189,19 +285,22 @@ const Card = styled.div`
     right: 0;
     bottom: 0;
     top: 0;
-    background: ${ props => props.showFact ? 'linear-gradient(-124deg, rgba(16,103,89,1) 0%, rgba(25,47,88,1) 100%)' : 'black'};
-    opacity: ${ props => props.showFact ? 1 : 0.8 };
+    background: ${ colors.darkBlue };
+    opacity: ${ props => props.showFact ? 1 : 0.5 };
     position: absolute;
     z-index: -1;
   }
 `
 
 const Footer = styled.footer`
-  background: black;
+  background: ${ colors.darkBlue };
   text-align: center;
   padding: 10px;
-  img {
-    width: 150px;
+  a {
+    color: ${ colors.lightBlue };
+    font-family: 'medium';
+    margin-bottom: 10px;
+    display: inline-block;
   }
   p {
     color: #fff;
