@@ -12,6 +12,7 @@ import {
 const App = () => {
   return (
     <div>
+      hi
       <Router>
         <Switch>
           <Route exact path="/watch">
