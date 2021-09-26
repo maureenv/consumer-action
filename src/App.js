@@ -13,16 +13,16 @@ const App = () => {
   return (
     <div>
       hi this is a test
-      {/*<Router>
+      <Router>
         <Switch>
-          <Route exact path="/watch">
+          <Route exact path={ process.env.PUBLIC_URL + '/watch' }>
             <Watch />
           </Route>
-          <Route exact path="/">
+          <Route exact path={ process.env.PUBLIC_URL + '/' }>
             <Home />
           </Route>
         </Switch>
-      </Router>*/}
+      </Router>
     </div>
   )
 }
