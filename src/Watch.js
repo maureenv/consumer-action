@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import {
   Link
 } from "react-router-dom";
-import video from './images/video.mp4'
+//import video from './images/video.mp4'
 
 
 const colors = {
@@ -18,7 +18,14 @@ const Watch = () => {
     <Link to="/">
       <VideoContainer>
         <button>✕</button>
-        <video playsInline autoPlay muted loop src={ video } type="video/mp4"/>
+        <video
+          playsInline
+          autoPlay
+          muted
+          loop
+          //src={ video } 
+          type="video/mp4"
+        />
       </VideoContainer>
     </Link>
   )

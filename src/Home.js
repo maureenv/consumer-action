@@ -1,156 +1,81 @@
 import React, { useState, useEffect } from 'react'
 import { Parallax } from 'react-scroll-parallax'
 import styled from '@emotion/styled'
-
-import logo from './images/ncl.jpg'
-import video from './images/video.mp4'
-import bg1 from './images/1.jpg'
-import bg2 from './images/2.jpg'
-import bg3 from './images/3.jpg'
-import bg4 from './images/4.jpg'
-import carton from './images/carton.jpg'
-import cartonS from './images/carton-s.png'
-import cartonM from './images/carton-m.png'
-import cartonL from './images/carton-l.png'
-import hero from './images/hero.jpg'
-import bottle from './images/bottle.png'
-import trash from './images/trash.png'
 import './styles.css'
 import {
   Link
-} from "react-router-dom";
-
+} from "react-router-dom"
+import heroBG from './images/hero-bg.jpg'
+import trashBG from './images/trash-bg.jpg'
+import logo from './images/logo-transparent.png'
+import read from './images/read.png'
+import listen from './images/listen.png'
+import examine from './images/examine.png'
 const colors = {
   darkBlue: '#13337a',
   lightBlue: '#6daedf',
   red: '#ee2427',
 }
 
-const links = [
+const boxes = [
   {
-    link: 'https://nclnet.org/',
-    icon: trash,
-    caption: 'Recycling your cartons is as easy as 1-2-3: Empty your cartons, toss them in the recycling bin, take your bin to the curb.'
+    img: read,
+    link: 'https://nclnet.org/wp-content/uploads/2020/10/NCL-Recycling-Report-Oct-2020.pdf',
+    cta: 'READ',
+    description: 'NCL’s report, Examining Sustainability, Consumer Choice, and Confusion in Food and Beverage Packaging'
   },
   {
-    link: 'https://nclnet.org/',
-    icon: trash,
-    caption: 'Recycling your cartons is as easy as 1-2-3: Empty your cartons, toss them in the recycling bin, take your bin to the curb.'
+    img: listen,
+    link: 'https://nclnet.org/does-recycling-even-work/',
+    cta: 'LISTEN',
+    description: 'NCL’s “We Can Do This!” podcast episode, “Does recycling even work?”'
   },
   {
-    link: 'https://nclnet.org/',
-    icon: trash,
-    caption: 'Recycling your cartons is as easy as 1-2-3: Empty your cartons, toss them in the recycling bin, take your bin to the curb.'
+    img: examine,
+    link: 'https://nclnet.org/national_recycling_day/',
+    cta: 'EXAMINE',
+    description: 'NCL’s infographic about how to become a savvy recycler and sustainable shopper'
   },
 ]
 
-const claims = [
-  {
-    claim: 'Recycling your cartons is as easy as 1-2-3: Empty your cartons, toss them in the recycling bin, take your bin to the curb.',
-    fact: 'According to Tetra Pak, carton recycling is available to 73 million U.S. households. Even if that number is accurate, it still leaves about 50 million households without any carton recycling options at all. However, even in areas which offer curbside pickup for cartons, those cartons are not typically processed locally, but instead baled and shipped thousands of miles to specialized facilities in Mexico and elsewhere, or simply landfilled.',
-    bg: bg1,
-  },
-  {
-    claim: 'The principles of circularity are at the very heart of the carton business.',
-    fact: 'Cartons are broken down into separate materials, including paper, plastic and aluminum, and from there can be turned into paper towels and other single-use paper products or building materials such as ceiling and wallboard. This is not, by definition, a circular economy, but instead a manufacture of single-use products out of leftover material. Cartons require virgin materials to be constructed, and recycled cartons do not end up back on the shelf as new ones.',
-    bg: bg2,
-  },
-  {
-    claim: 'Around the world, one million tons of used beverage cartons are recycled every year.',
-    fact: 'Various estimates have found that cartons are recycled at an extremely low rate, likely below 20 percent, which is even worse than plastic. For the one million tons of recaptured cartons, hundreds of millions are going to the landfill. Tetra Pak alone produces more than 300 billion new food and beverage cartons annually and has become the largest food and beverage packaging company in the world.',
-    bg: bg3,
-  },
-  {
-    claim: 'Cartons produce five times less overall climate impact than other forms of packaging.',
-    fact: 'Carton industry claims about reduced emissions relative to other forms of packaging examine only the cost of new containers and ignore the emissions reduction benefits of recycled containers. In short, the end-of-life portion of the life cycle is completely ignored. If assessments do not examine emissions based on current recycling rates and recycled material inputs, they do not accurately reflect the climate change impact of various container types.',
-    bg: bg4,
-  },
-]
 
 const Home = () => {
-  const [showFact, setShowFact] = useState(Array(4).fill(false))
-  const [cartonSPos, setCartonSPos] = useState(0)
-  const [cartonMPos, setCartonMPos] = useState(0)
-  const [cartonLPos, setCartonLPos] = useState(-200)
-
   useEffect(() => {
-    window.onscroll = () => {
-      if ( window.pageYOffset < 400 ) {
-        setCartonSPos( - window.pageYOffset)
-      }
-      if ( window.pageYOffset > 600 ) {
-      setCartonLPos( window.pageYOffset)
-    }
-      setCartonMPos( window.pageYOffset)
-    }
+
   }, []);
-
-  const onShowFact = index => {
-    const newArray = [...showFact]
-    newArray[index] = true
-    setShowFact( newArray )
-  }
-
-  const onShowClaim = index => {
-    const newArray = [...showFact]
-    newArray[index] = false
-    setShowFact( newArray )
-  }
-
+//<button><Link to="/watch">Watch Now</Link></button>
 
   return (
     <div>
-      <HeroSection bg={ hero }>
-        <img src={logo} className="logo" alt="logo" />
+      <HeroSection bg={ trashBG }>
         <HeroSectionInner>
-          <h1><span>Truth About</span> Recycling</h1>
-          <div className="video-container">
-            <video playsInline autoPlay muted loop src={ video } type="video/mp4"/>
-            <img className="background" src={ bottle } alt="National Consumer League"/>
-            <button><Link to="/watch">Watch Now</Link></button>
-          </div>
+          <img src={logo} className="logo" alt="logo" />
+          <h1><span>Facts About</span> Recycling</h1>
+          <HeroBoxes>
+            { boxes.map( b =>
+              <div className="box" key={ b.cta }>
+                <a className="box-image" rel="noreferrer noopener" target="_blank" href="https://nclnet.org/wp-content/uploads/2020/10/NCL-Recycling-Report-Oct-2020.pdf">
+                  <img src={ b.img } alt="National Consumer League"/>
+                  <button>{ b.cta }</button>
+                </a>
+                <p className="description">{ b.description }</p>
+              </div>
+            )}
+          </HeroBoxes>
         </HeroSectionInner>
       </HeroSection>
-      <LinksContainer bg={ bg1 }>
-        <SectionContainerInner>
-          <h2>Discover More</h2>
-          <LinkBoxes>
-            { links.map( (l, i) =>
-              <LinkBox key={ i }>
-                <img src={ l.icon } alt="recycle icon"/>
-                <p>{ l.caption }</p>
-                <a target="_blank" href={ l.link }>Read More</a>
-              </LinkBox>
-            )}
-          </LinkBoxes>
-        </SectionContainerInner>
-      </LinksContainer>
-      <SectionContainer bg={ carton }>
-        <CartonM scrollPosition={ cartonMPos } src={ cartonM }/>
-        <CartonL scrollPosition={ cartonLPos } src={ cartonL }/>
-        <SectionContainerInner>
-          <h2 className="section-heading">Recycling claims debunked</h2>
-          <div className="cards-container">
-            { claims.map( (c, i) =>
-              <Card showFact={ showFact[i] } background={ c.bg }>
-              { showFact[i] ?
-                <>
-                  <p className="claim">Fact</p>
-                  <p>{ c.fact }</p>
-                  <button onClick={ () => onShowClaim( i ) } className="claim-button">See Claim</button>
-                </>
-                :
-                <>
-                  <p className="claim">Claim</p>
-                  <p>{ c.claim }</p>
-                  <button onClick={ () => onShowFact( i ) } className="claim-button">See Fact</button>
-                </>
-              }
-              </Card>
-            )}
-          </div>
-        </SectionContainerInner>
-      </SectionContainer>
+      <VideoSection>
+        <VideoSectionInner>
+          <Title color="#fff">In the Bin and Beyond:</Title>
+          <Subtitle>What Really Happens to Your Packaging After the Recycling Bin</Subtitle>
+          <VideoContainer>
+            <IFrameContainer>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/b7GMpjx2jDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </IFrameContainer>
+          </VideoContainer>
+          <p className="video-footnote">Please watch the first video in an upcoming series to help consumers understand more about items thrown in the recycling bin.</p>
+        </VideoSectionInner>
+      </VideoSection>
       <Footer>
         <a target="_blank" href="https://nclnet.org/">
           National Consumers League
@@ -161,20 +86,8 @@ const Home = () => {
   )
 }
 
-
-const SectionContainer = styled.div`
-overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background: url(${ props => props.bg }) no-repeat left bottom;
-  background-size: 700px; */
-  position: relative;
-  z-index: 1;
-`
-
 const HeroSection = styled.div`
-  background: url( ${ props => props.bg }) no-repeat top;
+  background: url( ${ heroBG }) no-repeat top;
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -182,200 +95,161 @@ const HeroSection = styled.div`
   justify-content: center;
   position: relative;
   flex-direction: column;
-  .logo {
-    width: 150px;
-    position: absolute;
-    top: 20px;
-    left: 10px;
-  }
+  min-height: 800px;
 `
 
 const HeroSectionInner = styled.div`
   padding: 0 40px;
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  align-items: center;
+  margin-top: 100px;
+  .logo {
+    margin-bottom: 30px;
+    width: 140px;
+  }
   h1 {
-    font-size: 100px;
+    font-size: 80px;
     font-family: 'black';
+    text-align: center;
     color: ${ colors.darkBlue };
     text-transform: uppercase;
   }
   span {
     color: ${ colors.lightBlue };
     display: block;
-    font-size: 60px;
+    font-size: 50px;
     text-transform: initial;
   }
   .video-container {
     position: relative;
     width: 700px;
   }
-  img {
-    width: 100%;
+`
+
+const HeroBoxes = styled.div`
+  display: flex;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 800px;
+  justify-content: space-between;
+  .box {
+    max-width: 200px;
   }
-  video {
-    position: absolute;
-    top: 50%;
-    left: 50px;
-    transform: translateX(0) translateY(-50%);
-    width: 400px;
-    height: auto;
-    overflow: hidden;
-    z-index: 1;
+  .box-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    img {
+      width: 100%;
+      transition: 0.2s ease-in-out all;
+    }
+    &:hover {
+      img {
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
+      }
+    }
   }
   button {
-    cursor: pointer;
-    position: absolute;
-    left: 0;
-    background: ${ colors.red };
     border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    background: ${ colors.red };
     padding: 10px;
+    display: inline-block;
     color: #fff;
     font-family: 'black';
-    z-index: 100;
-    top: 50%;
+    text-decoration: none;
+    border-radius: 4px;
+    width: 130px;
+    text-align: center;
+    margin-top: -20px;
+  }
+  .description {
+    font-family: 'regular';
+    color: ${ colors.darkBlue };
+    text-align: center;
+    margin-top: 20px;
+    line-height: 1.4;
+    font-size: 15px;
   }
 `
 
-const LinksContainer = styled.div`
-  background: url( ${ props => props.bg }) no-repeat top fixed;
+const VideoSection = styled.div`
+  background: url( ${ trashBG }) no-repeat top;
   background-size: cover;
+  position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;
   position: relative;
+  align-items: center;
+  flex-direction: column;
   z-index: 1;
-  h2 {
-    text-align: center;
-    margin-bottom: 70px;
-    color: #fff;
-    font-family: 'black';
-    font-size: 50px;
-  }
   &:after {
-    content: "";
+    content: '';
+    z-index: -1;
     width: 100%;
     height: 100%;
     position: absolute;
-    background: ${ colors.darkBlue };
-    z-index: -1;
-    opacity: 0.6;
-  }
-`
-
-const LinkBoxes = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-const LinkBox = styled.div`
-  text-align: center;
-  color: #fff;
-  font-family: 'regular';
-  line-height: 1.4;
-  max-width: 29%;
-  img {
-    height: 70px;
-    margin-bottom: 20px;
-  }
-  a {
-    font-family: 'black';
-    color: #fff;
-    margin-top: 10px;
-    display: inline-block;
-  }
-`
-
-const CartonS = styled.img`
-  position: absolute;
-  width: 250px;
-  z-index: 1;
-  transition: 0.5s ease-in-out all;
-  bottom: -100px;
-  transform: ${ props => `translate(0, ${ - props.scrollPosition }px) rotate(${ props.scrollPosition / 5 }deg)`};
-`
-
-const CartonM = styled.img`
-  position: absolute;
-  width: 300px;
-  z-index: 1;
-  left: -20px;
-  filter: blur(2px);
-  bottom: -400px;
-  transition: 1s ease-in-out all;
-  transform: translate(0, ${ props => - (props.scrollPosition/3)}px) rotate(20deg);
-`
-
-const CartonL = styled.img`
-  position: absolute;
-  width: 180px;
-  z-index: 1;
-  right: 20px;
-  bottom: 0;
-  transition: 0.7s ease-in-out all;
-  transform: translate(0, ${ props => - (props.scrollPosition/5)}px) rotate(-20deg) scaleX(-1);
-`
-// https://www.shutterstock.com/image-photo/recycling-bins-paper-plastic-glass-metal-499703881
-const SectionContainerInner = styled.div`
-  max-width: 1000px;
-  width: 100%;
-  padding: 100px 20px;
-  .section-heading {
-  	font-size: 30px;
-  	color: ${ colors.darkBlue };
-  	margin-bottom: 20px;
-    font-family: 'black';
-  }
-`
-
-const Card = styled.div`
-  background: url( ${ props => props.background }) no-repeat center;
-  background-size: cover;
-  border-radius: 4px;
-  overflow: hidden;
-  z-index: 1;
-  position: relative;
-  color: #fff;
-  font-family: 'regular';
-  padding: 25px;
-  width: 48%;
-  height: 250px;
-  margin-bottom: 20px;
-  line-height: 1.4;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: ${ props => props.showFact ? '14px' : '18px' };
-  transition: 0.2s ease-in-out opacity;
-  .claim {
-  	color: ${ colors.lightBlue };
-  	text-transform: uppercase;
-  	font-size: 12px;
-  	font-family: 'black';
-  	margin-bottom: 5px;
-  }
-  .claim-button {
-  	border: none;
-  	border-radius: 3px;
-  	letter-spacing: 1px;
-  	font-family: 'regular';
-  	padding: 5px 10px;
-  	cursor: pointer;
-  	text-transform: uppercase;
-  	margin-top: 20px;
-  }
-  &:after {
-    content: '';
-    transition: 0.2s ease-in-out opacity;
-    left: 0;
+    top: 0;
     right: 0;
     bottom: 0;
-    top: 0;
+    left: 0;
     background: ${ colors.darkBlue };
-    opacity: ${ props => props.showFact ? 1 : 0.5 };
-    position: absolute;
-    z-index: -1;
+    opacity: 0.75;
   }
+`
+
+const VideoSectionInner = styled.div`
+  padding: 50px 20px;
+  text-align: center;
+  .video-footnote {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 auto;
+    max-width: 700px;
+    line-height: 1.4;
+    text-align: center;
+    font-family: 'regular';
+  }
+`
+
+const VideoContainer = styled.div`
+  width: 800px;
+  margin: 0 auto;
+`
+
+const IFrameContainer = styled.div`
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+  iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`
+
+const Title = styled.h2`
+  color: ${ props => props.color };
+  font-family: 'black';
+  text-align: center;
+  font-size: 50px;
+`
+
+const Subtitle = styled.h3`
+  text-align: center;
+  font-family: 'medium';
+  color: #fff;
+  font-size: 25px;
+  margin-top: 5px;
 `
 
 const Footer = styled.footer`

@@ -12,7 +12,6 @@ import {
 const App = () => {
   return (
     <div>
-      hi this is a test 2
       <Router>
         <Switch>
           <Route exact path={ process.env.PUBLIC_URL + '/watch' }>

@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/consumer-action/static/css/main.7e463b38.chunk.css",
-    "main.js": "/consumer-action/static/js/main.a448e498.chunk.js",
-    "main.js.map": "/consumer-action/static/js/main.a448e498.chunk.js.map",
-    "runtime-main.js": "/consumer-action/static/js/runtime-main.12c3f1d2.js",
-    "runtime-main.js.map": "/consumer-action/static/js/runtime-main.12c3f1d2.js.map",
-    "static/js/2.97204fa2.chunk.js": "/consumer-action/static/js/2.97204fa2.chunk.js",
-    "static/js/2.97204fa2.chunk.js.map": "/consumer-action/static/js/2.97204fa2.chunk.js.map",
-    "static/js/3.977e0631.chunk.js": "/consumer-action/static/js/3.977e0631.chunk.js",
-    "static/js/3.977e0631.chunk.js.map": "/consumer-action/static/js/3.977e0631.chunk.js.map",
+    "main.js": "/consumer-action/static/js/main.50024cca.chunk.js",
+    "main.js.map": "/consumer-action/static/js/main.50024cca.chunk.js.map",
+    "runtime-main.js": "/consumer-action/static/js/runtime-main.a5092f39.js",
+    "runtime-main.js.map": "/consumer-action/static/js/runtime-main.a5092f39.js.map",
+    "static/js/2.e5f053b8.chunk.js": "/consumer-action/static/js/2.e5f053b8.chunk.js",
+    "static/js/2.e5f053b8.chunk.js.map": "/consumer-action/static/js/2.e5f053b8.chunk.js.map",
+    "static/js/3.046782f5.chunk.js": "/consumer-action/static/js/3.046782f5.chunk.js",
+    "static/js/3.046782f5.chunk.js.map": "/consumer-action/static/js/3.046782f5.chunk.js.map",
     "index.html": "/consumer-action/index.html",
     "static/css/main.7e463b38.chunk.css.map": "/consumer-action/static/css/main.7e463b38.chunk.css.map",
-    "static/js/2.97204fa2.chunk.js.LICENSE.txt": "/consumer-action/static/js/2.97204fa2.chunk.js.LICENSE.txt",
+    "static/js/2.e5f053b8.chunk.js.LICENSE.txt": "/consumer-action/static/js/2.e5f053b8.chunk.js.LICENSE.txt",
     "static/media/1.249807f4.jpg": "/consumer-action/static/media/1.249807f4.jpg",
     "static/media/2.b0cb147e.jpg": "/consumer-action/static/media/2.b0cb147e.jpg",
     "static/media/3.eae74263.jpg": "/consumer-action/static/media/3.eae74263.jpg",
@@ -27,9 +27,9 @@
     "static/media/video.e7581a9e.mp4": "/consumer-action/static/media/video.e7581a9e.mp4"
   },
   "entrypoints": [
-    "static/js/runtime-main.12c3f1d2.js",
-    "static/js/2.97204fa2.chunk.js",
+    "static/js/runtime-main.a5092f39.js",
+    "static/js/2.e5f053b8.chunk.js",
     "static/css/main.7e463b38.chunk.css",
-    "static/js/main.a448e498.chunk.js"
+    "static/js/main.50024cca.chunk.js"
   ]
 }
