@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/consumer-action/static/css/main.7e463b38.chunk.css",
-    "main.js": "/consumer-action/static/js/main.74175f14.chunk.js",
-    "main.js.map": "/consumer-action/static/js/main.74175f14.chunk.js.map",
-    "runtime-main.js": "/consumer-action/static/js/runtime-main.12c3f1d2.js",
-    "runtime-main.js.map": "/consumer-action/static/js/runtime-main.12c3f1d2.js.map",
-    "static/js/2.2e44a0ae.chunk.js": "/consumer-action/static/js/2.2e44a0ae.chunk.js",
-    "static/js/2.2e44a0ae.chunk.js.map": "/consumer-action/static/js/2.2e44a0ae.chunk.js.map",
-    "static/js/3.977e0631.chunk.js": "/consumer-action/static/js/3.977e0631.chunk.js",
-    "static/js/3.977e0631.chunk.js.map": "/consumer-action/static/js/3.977e0631.chunk.js.map",
-    "index.html": "/consumer-action/index.html",
-    "static/css/main.7e463b38.chunk.css.map": "/consumer-action/static/css/main.7e463b38.chunk.css.map",
-    "static/js/2.2e44a0ae.chunk.js.LICENSE.txt": "/consumer-action/static/js/2.2e44a0ae.chunk.js.LICENSE.txt",
-    "static/media/styles.css": "/consumer-action/static/media/Roboto-Regular.a8d6ac03.ttf",
-    "static/media/examine.80693e4f.png": "/consumer-action/static/media/examine.80693e4f.png",
-    "static/media/hero-bg.fe594cac.jpg": "/consumer-action/static/media/hero-bg.fe594cac.jpg",
-    "static/media/listen.c5eaa077.png": "/consumer-action/static/media/listen.c5eaa077.png",
-    "static/media/logo-transparent.f20a18a2.png": "/consumer-action/static/media/logo-transparent.f20a18a2.png",
-    "static/media/read.7873cbac.png": "/consumer-action/static/media/read.7873cbac.png",
-    "static/media/trash-bg.021a49d2.jpg": "/consumer-action/static/media/trash-bg.021a49d2.jpg"
+    "main.css": "/ncl/static/css/main.cfe683e6.chunk.css",
+    "main.js": "/ncl/static/js/main.8358f051.chunk.js",
+    "main.js.map": "/ncl/static/js/main.8358f051.chunk.js.map",
+    "runtime-main.js": "/ncl/static/js/runtime-main.3dbc980b.js",
+    "runtime-main.js.map": "/ncl/static/js/runtime-main.3dbc980b.js.map",
+    "static/js/2.2e44a0ae.chunk.js": "/ncl/static/js/2.2e44a0ae.chunk.js",
+    "static/js/2.2e44a0ae.chunk.js.map": "/ncl/static/js/2.2e44a0ae.chunk.js.map",
+    "static/js/3.977e0631.chunk.js": "/ncl/static/js/3.977e0631.chunk.js",
+    "static/js/3.977e0631.chunk.js.map": "/ncl/static/js/3.977e0631.chunk.js.map",
+    "index.html": "/ncl/index.html",
+    "static/css/main.cfe683e6.chunk.css.map": "/ncl/static/css/main.cfe683e6.chunk.css.map",
+    "static/js/2.2e44a0ae.chunk.js.LICENSE.txt": "/ncl/static/js/2.2e44a0ae.chunk.js.LICENSE.txt",
+    "static/media/styles.css": "/ncl/static/media/Roboto-Regular.a8d6ac03.ttf",
+    "static/media/examine.80693e4f.png": "/ncl/static/media/examine.80693e4f.png",
+    "static/media/hero-bg.fe594cac.jpg": "/ncl/static/media/hero-bg.fe594cac.jpg",
+    "static/media/listen.c5eaa077.png": "/ncl/static/media/listen.c5eaa077.png",
+    "static/media/logo-transparent.f20a18a2.png": "/ncl/static/media/logo-transparent.f20a18a2.png",
+    "static/media/read.7873cbac.png": "/ncl/static/media/read.7873cbac.png",
+    "static/media/trash-bg.021a49d2.jpg": "/ncl/static/media/trash-bg.021a49d2.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.12c3f1d2.js",
+    "static/js/runtime-main.3dbc980b.js",
     "static/js/2.2e44a0ae.chunk.js",
-    "static/css/main.7e463b38.chunk.css",
-    "static/js/main.74175f14.chunk.js"
+    "static/css/main.cfe683e6.chunk.css",
+    "static/js/main.8358f051.chunk.js"
   ]
 }

@@ -7,10 +7,23 @@ import {
 } from "react-router-dom"
 import heroBG from './images/hero-bg.jpg'
 import trashBG from './images/trash-bg.jpg'
+import trashBGMobile from './images/trash-bg-mobile.jpg'
+import beachBG from './images/beach-bg.jpg'
+import beachBGMobile from './images/beach-bg-mobile.jpg'
 import logo from './images/logo-transparent.png'
 import read from './images/read.png'
 import listen from './images/listen.png'
 import examine from './images/examine.png'
+import fact1 from './images/fact-1.png'
+import fact2 from './images/fact-2.jpg'
+import fact3 from './images/fact-3.png'
+import fact4 from './images/fact-4.png'
+import fact5 from './images/fact-5.png'
+import drink from './images/icon-drink.png'
+import world from './images/icon-world.png'
+import trash from './images/icon-trash.png'
+import oil from './images/icon-oil.png'
+
 const colors = {
   darkBlue: '#13337a',
   lightBlue: '#6daedf',
@@ -38,12 +51,63 @@ const boxes = [
   },
 ]
 
+const claims = [
+  {
+    img: fact1,
+    claim: 'The recycling triangle on a container means it can be recycled.',
+    fact: 'Metal and glass can be recycled whether or not they have recycling triangles on them. On some plastics and cartons, it indicates the type of resin used in manufacturing, not that it can be recycled.'
+  },
+  {
+    img: fact2,
+    claim: 'Cartons are recyclable.',
+    fact: 'Cartons are composed of three layers: cardboard, plastic, and aluminum. This makes them very difficult to recycle, so only about 60 percent of American cities accept cartons for recycling. Even the programs that do send some cartons to the landfill.'
+  },
+  {
+    img: fact3,
+    claim: 'Recycled plastic containers end up as new plastic containers.',
+    fact: 'Most recycled plastic is downcycled into single-use plastic, and then landfilled.'
+  },
+  {
+    img: fact4,
+    claim: 'Recycled plastic products are better for the environment.',
+    fact: 'Recycled plastic products require new, “virgin” plastic to be made, which is typically produced from petroleum. Plastics harm the environment when made and when discarded.'
+  },
+  {
+    img: fact5,
+    claim: 'Plastic is endlessly recyclable.',
+    fact: 'Metal and glass are endlessly recyclable. Plastic isn’t. It degrades, is downcycled into an item of lower quality, and can eventually enter food and water supplies as microplastics.'
+  }
+]
+
+const resources = [
+  {
+    img: world,
+    title: 'Consumer-driven change for Earth Day',
+    link: 'https://nationalconsumersleague.medium.com/consumer-driven-change-for-earth-day-1c9aaa57cdec',
+  },
+  {
+    img: drink,
+    title: 'The blight of cartons covering Vietnam’s beaches and towns',
+    link: 'https://www.theguardian.com/environment/2018/dec/09/billions-discarded-tetra-pak-cover-vietnams-beaches-towns',
+  },
+  {
+    img: trash,
+    title: 'The Story of Stuff: Where Your Recycled Plastic Ends Up',
+    link: 'https://www.youtube.com/watch?v=urFZ5o0az_4'
+  },
+  {
+    img: oil,
+    title: 'How Big Oil Misled the Public Into Believing Plastic Would be Recycled',
+    link: 'https://www.npr.org/2020/09/11/897692090/how-big-oil-misled-the-public-into-believing-plastic-would-be-recycled'
+  }
+]
+
 
 const Home = () => {
   useEffect(() => {
 
   }, []);
-//<button><Link to="/watch">Watch Now</Link></button>
+  const [showMore, setShowMore] = useState(false)
 
   return (
     <div>
@@ -76,6 +140,37 @@ const Home = () => {
           <p className="video-footnote">Please watch the first video in an upcoming series to help consumers understand more about items thrown in the recycling bin.</p>
         </VideoSectionInner>
       </VideoSection>
+      <ClaimsSection>
+        <Title marginBottom="35px" color={ colors.darkBlue }>Recycling Claims <span style={{ color: colors.red }}>Debunked</span></Title>
+        <ClaimsContainer>
+          <ClaimTitle>
+            <p style={{ color: colors.darkBlue }}>Myths</p>
+            <p style={{ color: colors.red }}>Facts</p>
+          </ClaimTitle>
+          { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
+            <Claim key={ c.claim }>
+              <p className="claim">{ c.claim }</p>
+              <div className="img-container">
+                <img src={ c.img } alt="National Consumer League"/>
+              </div>
+              <p>{ c.fact }</p>
+            </Claim>
+          )}
+          <button onClick={ () => setShowMore(!showMore) } className="see-more">{ showMore ? 'Hide Myths' : 'See More Myths'}</button>
+        </ClaimsContainer>
+      </ClaimsSection>
+      <ResourceSection>
+        <Title marginBottom="40px" color="#fff">Additional Resources</Title>
+        <ResourcesInner>
+          { resources.map( r =>
+            <Resource key={ r.link }>
+              <img src={ r.img } alt="National Consumer League"/>
+              <p>{ r.title }</p>
+              <a href={ r.link }>Learn More</a>
+            </Resource>
+          )}
+        </ResourcesInner>
+      </ResourceSection>
       <Footer>
         <a target="_blank" href="https://nclnet.org/">
           National Consumers League
@@ -239,6 +334,7 @@ const IFrameContainer = styled.div`
 
 const Title = styled.h2`
   color: ${ props => props.color };
+  margin-bottom: ${ props => props.marginBottom };
   font-family: 'black';
   text-align: center;
   font-size: 50px;
@@ -252,20 +348,144 @@ const Subtitle = styled.h3`
   margin-top: 5px;
 `
 
+const ClaimsSection = styled.div`
+  padding: 50px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const ClaimsContainer = styled.div`
+  max-width: 1000px;
+  .see-more {
+    background: none;
+    border: none;
+    font-family: 'regular';
+    text-decoration: underline;
+    color: ${ colors.darkBlue };
+    font-size: 17px;
+    cursor: pointer;
+  }
+`
+
+const Claim = styled.div`
+  background: rgb(19,51,122);
+  background: linear-gradient(95deg, rgba(19,51,122,1) 0%, rgba(187,11,14,1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  p {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-family: 'regular';
+    text-align: left;
+    padding: 20px;
+    line-height: 1.4;
+    width: 50%;
+    font-size: 15px;
+  }
+  .claim {
+    font-family: 'black';
+    font-size: 18px;
+    min-height: 100px;
+  }
+  .img-container {
+    width: 200px;
+    position: relative;
+  }
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    border-radius: 100px;
+    border: 3px solid #fff;
+    top: -50%;
+    transform: translate(0,-50%);
+  }
+`
+
+const ClaimTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-family: 'regular';
+  text-transform: uppercase;
+  font-size: 23px;
+  margin-bottom: 10px;
+`
+
+const ResourceSection = styled.div`
+  background: url( ${ beachBG }) no-repeat top;
+  background-size: cover;
+  padding: 50px 20px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  z-index: 1;
+  &:after {
+    content: '';
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: ${ colors.darkBlue };
+    opacity: 0.75;
+  }
+`
+
+const ResourcesInner = styled.div`
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+`
+
+const Resource = styled.div`
+  text-align: center;
+  width: 21%;
+  p {
+    font-family: 'regular';
+    color: #fff;
+    line-height: 1.4;
+  }
+  img {
+    height: 70px;
+    margin-bottom: 20px;
+  }
+  a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px;
+    color: #fff;
+    font-family: 'medium';
+  }
+`
+
 const Footer = styled.footer`
-  background: ${ colors.darkBlue };
+  background: #fff;
   text-align: center;
   padding: 10px;
   a {
-    color: ${ colors.lightBlue };
+    color: ${ colors.darkBlue };
     font-family: 'medium';
     margin-bottom: 10px;
     display: inline-block;
   }
   p {
-    color: #fff;
+    color: ${ colors.lightBlue };
     font-size: 14px;
-    font-family: 'light';
+    font-family: 'regular';
   }
 `
 
