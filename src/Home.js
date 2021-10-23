@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Parallax } from 'react-scroll-parallax'
+import MediaQuery from 'react-responsive'
 import styled from '@emotion/styled'
 import './styles.css'
 import {
@@ -134,7 +135,7 @@ const Home = () => {
           <Subtitle>What Really Happens to Your Packaging After the Recycling Bin</Subtitle>
           <VideoContainer>
             <IFrameContainer>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/b7GMpjx2jDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/4o9-FkSHGWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </IFrameContainer>
           </VideoContainer>
           <p className="video-footnote">Please watch the first video in an upcoming series to help consumers understand more about items thrown in the recycling bin.</p>
@@ -142,22 +143,24 @@ const Home = () => {
       </VideoSection>
       <ClaimsSection>
         <Title marginBottom="35px" color={ colors.darkBlue }>Recycling Claims <span style={{ color: colors.red }}>Debunked</span></Title>
-        <ClaimsContainer>
-          <ClaimTitle>
-            <p style={{ color: colors.darkBlue }}>Myths</p>
-            <p style={{ color: colors.red }}>Facts</p>
-          </ClaimTitle>
-          { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
-            <Claim key={ c.claim }>
-              <p className="claim">{ c.claim }</p>
-              <div className="img-container">
-                <img src={ c.img } alt="National Consumer League"/>
-              </div>
-              <p>{ c.fact }</p>
-            </Claim>
-          )}
-          <button onClick={ () => setShowMore(!showMore) } className="see-more">{ showMore ? 'Hide Myths' : 'See More Myths'}</button>
-        </ClaimsContainer>
+        <MediaQuery query='(min-width: 800px)'>
+          <ClaimsContainer>
+            <ClaimTitle>
+              <p style={{ color: colors.darkBlue }}>Myths</p>
+              <p style={{ color: colors.red }}>Facts</p>
+            </ClaimTitle>
+            { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
+              <Claim key={ c.claim }>
+                <p className="claim">{ c.claim }</p>
+                <div className="img-container">
+                  <img src={ c.img } alt="National Consumer League"/>
+                </div>
+                <p>{ c.fact }</p>
+              </Claim>
+            )}
+            <button onClick={ () => setShowMore(!showMore) } className="see-more">{ showMore ? 'Hide Myths' : 'See More Myths'}</button>
+          </ClaimsContainer>
+        </MediaQuery>
       </ClaimsSection>
       <ResourceSection>
         <Title marginBottom="40px" color="#fff">Additional Resources</Title>
@@ -191,6 +194,12 @@ const HeroSection = styled.div`
   position: relative;
   flex-direction: column;
   min-height: 800px;
+  @media only screen and (max-width: 700px) {
+    font-size: 50px;
+    justify-content: flex-start;
+    height: inherit;
+    background: #fff;
+  }
 `
 
 const HeroSectionInner = styled.div`
@@ -209,16 +218,22 @@ const HeroSectionInner = styled.div`
     text-align: center;
     color: ${ colors.darkBlue };
     text-transform: uppercase;
+    @media only screen and (max-width: 600px) {
+      font-size: 50px;
+    }
   }
   span {
     color: ${ colors.lightBlue };
     display: block;
     font-size: 50px;
     text-transform: initial;
+    @media only screen and (max-width: 600px) {
+      font-size: 35px;
+    }
   }
-  .video-container {
-    position: relative;
-    width: 700px;
+  @media only screen and (max-width: 700px) {
+    padding: 20px;
+    margin-top: 0;
   }
 `
 
@@ -230,6 +245,10 @@ const HeroBoxes = styled.div`
   justify-content: space-between;
   .box {
     max-width: 200px;
+    @media only screen and (max-width: 600px) {
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
   }
   .box-image {
     display: flex;
@@ -270,6 +289,10 @@ const HeroBoxes = styled.div`
     line-height: 1.4;
     font-size: 15px;
   }
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const VideoSection = styled.div`
@@ -292,8 +315,9 @@ const VideoSection = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: ${ colors.darkBlue };
-    opacity: 0.75;
+    background: rgb(19,51,122);
+    background: linear-gradient(0deg, rgba(19,51,122,1) 0%, rgba(4,24,69,1) 100%);
+    opacity: 0.9;
   }
 `
 
@@ -308,11 +332,14 @@ const VideoSectionInner = styled.div`
     line-height: 1.4;
     text-align: center;
     font-family: 'regular';
+    @media only screen and (max-width: 600px) {
+      font-size: 16px;
+    }
   }
 `
 
 const VideoContainer = styled.div`
-  width: 800px;
+  max-width: 800px;
   margin: 0 auto;
 `
 
@@ -338,6 +365,10 @@ const Title = styled.h2`
   font-family: 'black';
   text-align: center;
   font-size: 50px;
+  line-height: 1.4;
+  @media only screen and (max-width: 700px) {
+    font-size: 30px;
+  }
 `
 
 const Subtitle = styled.h3`
@@ -346,6 +377,10 @@ const Subtitle = styled.h3`
   color: #fff;
   font-size: 25px;
   margin-top: 5px;
+  line-height: 1.4;
+  @media only screen and (max-width: 700px) {
+    font-size: 18px;
+  }
 `
 
 const ClaimsSection = styled.div`
@@ -440,8 +475,9 @@ const ResourceSection = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: ${ colors.darkBlue };
-    opacity: 0.75;
+    background: rgb(19,51,122);
+    background: linear-gradient(0deg, rgba(19,51,122,1) 0%, rgba(4,24,69,1) 100%);
+    opacity: 0.9;
   }
 `
 
@@ -449,6 +485,10 @@ const ResourcesInner = styled.div`
   max-width: 1000px;
   display: flex;
   justify-content: space-between;
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const Resource = styled.div`
@@ -458,6 +498,9 @@ const Resource = styled.div`
     font-family: 'regular';
     color: #fff;
     line-height: 1.4;
+    @media only screen and (max-width: 700px) {
+      max-width: 280px;
+    }
   }
   img {
     height: 70px;
@@ -469,6 +512,17 @@ const Resource = styled.div`
     padding: 5px;
     color: #fff;
     font-family: 'medium';
+    @media only screen and (max-width: 700px) {
+      text-decoration: none;
+      background: #fff;
+      color: ${ colors.darkBlue };
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+    margin-bottom: 50px;
   }
 `
 
