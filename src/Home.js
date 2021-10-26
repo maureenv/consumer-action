@@ -143,6 +143,23 @@ const Home = () => {
       </VideoSection>
       <ClaimsSection>
         <Title marginBottom="35px" color={ colors.darkBlue }>Recycling Claims <span style={{ color: colors.red }}>Debunked</span></Title>
+        {/* mobile view */}
+        <MediaQuery query='(max-width: 801px)'>
+          <ClaimsContainer>
+            { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
+              <ClaimMobile key={ c.claim }>
+                <div className="img-container">
+                  <img src={ c.img } alt="National Consumer League"/>
+                </div>
+                <p className="myth-title">Myth</p>
+                <p className="myth-description">{ c.claim }</p>
+                <div className="divider-line"/>
+                <p className="facts-title">Fact</p>
+                <p className="facts-description">{ c.fact }</p>
+              </ClaimMobile>
+            )}
+          </ClaimsContainer>
+        </MediaQuery>
         <MediaQuery query='(min-width: 800px)'>
           <ClaimsContainer>
             <ClaimTitle>
@@ -158,9 +175,9 @@ const Home = () => {
                 <p>{ c.fact }</p>
               </Claim>
             )}
-            <button onClick={ () => setShowMore(!showMore) } className="see-more">{ showMore ? 'Hide Myths' : 'See More Myths'}</button>
           </ClaimsContainer>
         </MediaQuery>
+        <button onClick={ () => setShowMore(!showMore) } className="see-more">{ showMore ? 'Hide Myths' : 'See More Myths'}</button>
       </ClaimsSection>
       <ResourceSection>
         <Title marginBottom="40px" color="#fff">Additional Resources</Title>
@@ -389,10 +406,6 @@ const ClaimsSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
-
-const ClaimsContainer = styled.div`
-  max-width: 1000px;
   .see-more {
     background: none;
     border: none;
@@ -401,6 +414,13 @@ const ClaimsContainer = styled.div`
     color: ${ colors.darkBlue };
     font-size: 17px;
     cursor: pointer;
+  }
+`
+
+const ClaimsContainer = styled.div`
+  max-width: 1000px;
+  @media only screen and (max-width: 700px) {
+    margin-top: 20px;
   }
 `
 
@@ -451,6 +471,48 @@ const ClaimTitle = styled.div`
   text-transform: uppercase;
   font-size: 23px;
   margin-bottom: 10px;
+  @media only screen and (max-width: 700px) {
+    margin-bottom: 20px;
+  }
+`
+
+const ClaimMobile = styled.div`
+  diplay: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 4px;
+  background: rgb(19,51,122);
+  background: linear-gradient(180deg, rgba(19,51,122,1) 0%, rgba(187,11,14,1) 100%);
+  padding: 30px 20px;
+  color: #fff;
+  margin-bottom: 50px;
+  .myth-title,
+  .facts-title {
+    font-family: 'black';
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .myth-description,
+  .facts-description {
+    font-family: 'regular';
+    line-height: 1.4;
+    font-size: 16px;
+  }
+  .img-container {
+    margin-top: -60px;
+    margin-bottom: 20px;
+  }
+  .img-container img{
+    width: 130px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+  }
+  .divider-line {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    margin: 20px 0;
+  }
 `
 
 const ResourceSection = styled.div`
