@@ -226,8 +226,14 @@ const HeroSectionInner = styled.div`
   align-items: center;
   margin-top: 100px;
   .logo {
+    position: absolute;
+    top: 20px;
+    left: 10px;
     margin-bottom: 30px;
     width: 140px;
+    @media only screen and (max-width: 700px) {
+      width: 100px;
+    }
   }
   h1 {
     font-size: 80px;
@@ -237,6 +243,7 @@ const HeroSectionInner = styled.div`
     text-transform: uppercase;
     @media only screen and (max-width: 600px) {
       font-size: 50px;
+      margin-top: 70px;
     }
   }
   span {
@@ -276,6 +283,9 @@ const HeroBoxes = styled.div`
     img {
       width: 100%;
       transition: 0.2s ease-in-out all;
+      @media only screen and (max-width: 600px) {
+        border: 1px solid #d4d4d4;
+      }
     }
     &:hover {
       img {
@@ -297,6 +307,11 @@ const HeroBoxes = styled.div`
     width: 130px;
     text-align: center;
     margin-top: -20px;
+    @media only screen and (max-width: 600px) {
+      padding: 15px;
+      width: 200px;
+      font-size: 18px;
+    }
   }
   .description {
     font-family: 'regular';
@@ -335,6 +350,9 @@ const VideoSection = styled.div`
     background: rgb(19,51,122);
     background: linear-gradient(0deg, rgba(19,51,122,1) 0%, rgba(4,24,69,1) 100%);
     opacity: 0.9;
+  }
+  @media only screen and (max-width: 700px) {
+    background: ${ colors.darkBlue };
   }
 `
 
@@ -541,6 +559,9 @@ const ResourceSection = styled.div`
     background: linear-gradient(0deg, rgba(19,51,122,1) 0%, rgba(4,24,69,1) 100%);
     opacity: 0.9;
   }
+  @media only screen and (max-width: 600px) {
+    background: ${ colors.darkBlue };
+  }
 `
 
 const ResourcesInner = styled.div`
@@ -578,20 +599,21 @@ const Resource = styled.div`
       text-decoration: none;
       background: #fff;
       color: ${ colors.darkBlue };
-      padding: 10px 20px;
+      padding: 15px;
+      width: 180px;
       border-radius: 4px;
     }
   }
   @media only screen and (max-width: 700px) {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
   }
 `
 
 const Footer = styled.footer`
   background: #fff;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   a {
     color: ${ colors.darkBlue };
     font-family: 'medium';
@@ -601,6 +623,7 @@ const Footer = styled.footer`
   p {
     color: ${ colors.lightBlue };
     font-size: 14px;
+    line-height: 1.4;
     font-family: 'regular';
   }
 `
