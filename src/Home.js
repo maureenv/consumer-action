@@ -60,7 +60,7 @@ const claims = [
   },
   {
     img: fact2,
-    claim: 'Cartons are recyclable.',
+    claim: 'All cartons are recyclable.',
     fact: 'Cartons are composed of three layers: cardboard, plastic, and aluminum. This makes them very difficult to recycle, so only about 60 percent of American cities accept cartons for recycling. Even the programs that do send some cartons to the landfill.'
   },
   {
@@ -138,7 +138,6 @@ const Home = () => {
               <iframe src="https://www.youtube.com/embed/4o9-FkSHGWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </IFrameContainer>
           </VideoContainer>
-          <p className="video-footnote">Please watch the first video in an upcoming series to help consumers understand more about items thrown in the recycling bin.</p>
         </VideoSectionInner>
       </VideoSection>
       <ClaimsSection>
