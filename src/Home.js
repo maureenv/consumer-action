@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Parallax } from 'react-scroll-parallax'
+import Fade from 'react-reveal/Fade'
 import MediaQuery from 'react-responsive'
 import styled from '@emotion/styled'
 import './styles.css'
-import {
-  Link
-} from "react-router-dom"
 import heroBG from './images/hero-desktop.jpg'
 import heroBGMobile from './images/hero-mobile.jpg'
 import trashBG from './images/trash-bg.jpg'
-import trashBGMobile from './images/trash-bg-mobile.jpg'
 import beachBG from './images/beach-bg.jpg'
-import beachBGMobile from './images/beach-bg-mobile.jpg'
 import logo from './images/logo-transparent.png'
 import read from './images/read.png'
 import listen from './images/listen.png'
@@ -119,80 +114,88 @@ const Home = () => {
           <h1><span>Facts About</span> Recycling</h1>
           <HeroBoxes>
             { boxes.map( b =>
-              <div className="box" key={ b.cta }>
+              <Fade bottom key={ b.cta }>
+              <div className="box">
                 <a className="box-image" rel="noreferrer noopener" target="_blank" href="https://nclnet.org/wp-content/uploads/2020/10/NCL-Recycling-Report-Oct-2020.pdf">
                   <img src={ b.img } alt="National Consumer League"/>
                   <button>{ b.cta }</button>
                 </a>
                 <p className="description">{ b.description }</p>
               </div>
+              </Fade>
             )}
           </HeroBoxes>
         </HeroSectionInner>
       </HeroSection>
       <VideoSection>
         <VideoSectionInner>
-          <Title color="#fff">In the Bin and Beyond:</Title>
-          <Subtitle>What Really Happens to Your Packaging After the Recycling Bin</Subtitle>
-          <VideoContainer>
-            <IFrameContainer>
-              <iframe src="https://www.youtube.com/embed/4o9-FkSHGWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </IFrameContainer>
-          </VideoContainer>
+          <Fade bottom>
+            <Title color="#fff">In the Bin and Beyond:</Title>
+            <Subtitle>What Really Happens to Your Packaging After the Recycling Bin</Subtitle>
+            <VideoContainer>
+              <IFrameContainer>
+                <iframe src="https://www.youtube.com/embed/4o9-FkSHGWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </IFrameContainer>
+            </VideoContainer>
+          </Fade>
         </VideoSectionInner>
       </VideoSection>
       <ClaimsSection>
-        <Title marginBottom="35px" color={ colors.darkBlue }>Recycling Claims <span style={{ color: colors.red }}>Debunked</span></Title>
-        {/* mobile view */}
-        <MediaQuery query='(max-width: 801px)'>
-          <ClaimsContainer>
-            { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
-              <ClaimMobile key={ c.claim }>
-                <div className="img-container">
-                  <img src={ c.img } alt="National Consumer League"/>
-                </div>
-                <p className="myth-title">Myth</p>
-                <p className="myth-description">{ c.claim }</p>
-                <div className="divider-line"/>
-                <p className="facts-title">Fact</p>
-                <p className="facts-description">{ c.fact }</p>
-              </ClaimMobile>
-            )}
-          </ClaimsContainer>
-        </MediaQuery>
-        <MediaQuery query='(min-width: 800px)'>
-          <ClaimsContainer>
-            <ClaimTitle>
-              <p style={{ color: colors.darkBlue }}>Myths</p>
-              <p style={{ color: colors.red }}>Facts</p>
-            </ClaimTitle>
-            { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
-              <Claim key={ c.claim }>
-                <p className="claim">{ c.claim }</p>
-                <div className="img-container">
-                  <img src={ c.img } alt="National Consumer League"/>
-                </div>
-                <p>{ c.fact }</p>
-              </Claim>
-            )}
-          </ClaimsContainer>
-        </MediaQuery>
-        <button onClick={ () => setShowMore(!showMore) } className="see-more">{ showMore ? 'Hide Myths' : 'See More Myths'}</button>
+        <Fade bottom>
+          <Title marginBottom="35px" color={ colors.darkBlue }>Recycling Claims <span style={{ color: colors.red }}>Debunked</span></Title>
+          {/* mobile view */}
+          <MediaQuery query='(max-width: 801px)'>
+            <ClaimsContainer>
+              { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
+                <ClaimMobile key={ c.claim }>
+                  <div className="img-container">
+                    <img src={ c.img } alt="National Consumer League"/>
+                  </div>
+                  <p className="myth-title">Myth</p>
+                  <p className="myth-description">{ c.claim }</p>
+                  <div className="divider-line"/>
+                  <p className="facts-title">Fact</p>
+                  <p className="facts-description">{ c.fact }</p>
+                </ClaimMobile>
+              )}
+            </ClaimsContainer>
+          </MediaQuery>
+          <MediaQuery query='(min-width: 800px)'>
+            <ClaimsContainer>
+              <ClaimTitle>
+                <p style={{ color: colors.darkBlue }}>Myths</p>
+                <p style={{ color: colors.red }}>Facts</p>
+              </ClaimTitle>
+              { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
+                <Claim key={ c.claim }>
+                  <p className="claim">{ c.claim }</p>
+                  <div className="img-container">
+                    <img src={ c.img } alt="National Consumer League"/>
+                  </div>
+                  <p>{ c.fact }</p>
+                </Claim>
+              )}
+            </ClaimsContainer>
+          </MediaQuery>
+          <button onClick={ () => setShowMore(!showMore) } className="see-more">{ showMore ? 'Hide Myths' : 'See More Myths'}</button>
+        </Fade>
       </ClaimsSection>
       <ResourceSection>
-        <Title marginBottom="40px" color="#fff">Additional Resources</Title>
-        <ResourcesInner>
-          { resources.map( r =>
-            <Resource key={ r.link }>
-              <img src={ r.img } alt="National Consumer League"/>
-              <p>{ r.title }</p>
-              <a href={ r.link }>Learn More</a>
-            </Resource>
-          )}
-        </ResourcesInner>
+        <Fade bottom>
+          <Title marginBottom="40px" color="#fff">Additional Resources</Title>
+          <ResourcesInner>
+            { resources.map( r =>
+              <Resource key={ r.link }>
+                <img src={ r.img } alt="National Consumer League"/>
+                <p>{ r.title }</p>
+                <a href={ r.link }>Learn More</a>
+              </Resource>
+            )}
+          </ResourcesInner>
+        </Fade>
       </ResourceSection>
       <Footer>
-        <a target="_blank" href="https://nclnet.org/">
+        <a target="_blank" rel="noreferrer" href="https://nclnet.org/">
           National Consumers League
         </a>
         <p>For confidence and safety in the marketplace since 1899.</p>

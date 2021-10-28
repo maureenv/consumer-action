@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { Parallax } from 'react-scroll-parallax'
+import React from 'react'
 import Home from './Home'
 import Watch from './Watch'
 import {
