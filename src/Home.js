@@ -116,7 +116,7 @@ const Home = () => {
             { boxes.map( b =>
               <Fade bottom key={ b.cta }>
               <div className="box">
-                <a className="box-image" rel="noreferrer noopener" target="_blank" href="https://nclnet.org/wp-content/uploads/2020/10/NCL-Recycling-Report-Oct-2020.pdf">
+                <a className="box-image" rel="noreferrer noopener" target="_blank" href={ b.link }>
                   <img src={ b.img } alt="National Consumer League"/>
                   <button>{ b.cta }</button>
                 </a>
@@ -188,7 +188,7 @@ const Home = () => {
               <Resource key={ r.link }>
                 <img src={ r.img } alt="National Consumer League"/>
                 <p>{ r.title }</p>
-                <a href={ r.link }>Learn More</a>
+                <a href={ r.link } target="_blank" rel="noreferrer">Learn More</a>
               </Resource>
             )}
           </ResourcesInner>
