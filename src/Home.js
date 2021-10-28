@@ -6,7 +6,8 @@ import './styles.css'
 import {
   Link
 } from "react-router-dom"
-import heroBG from './images/hero-bg.jpg'
+import heroBG from './images/hero-desktop.jpg'
+import heroBGMobile from './images/hero-mobile.jpg'
 import trashBG from './images/trash-bg.jpg'
 import trashBGMobile from './images/trash-bg-mobile.jpg'
 import beachBG from './images/beach-bg.jpg'
@@ -203,6 +204,7 @@ const Home = () => {
 const HeroSection = styled.div`
   background: url( ${ heroBG }) no-repeat top;
   background-size: cover;
+  background-color: #f9f7fa;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -210,11 +212,21 @@ const HeroSection = styled.div`
   position: relative;
   flex-direction: column;
   min-height: 800px;
+  position: relative;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #fbf9fc;
+    z-index: -1;
+  }
   @media only screen and (max-width: 700px) {
     font-size: 50px;
     justify-content: flex-start;
     height: inherit;
-    background: #fff;
+    background: url( ${ heroBGMobile }) no-repeat top;
+    background-size: contain;
   }
 `
 
@@ -240,7 +252,7 @@ const HeroSectionInner = styled.div`
     text-align: center;
     color: ${ colors.darkBlue };
     text-transform: uppercase;
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
       font-size: 50px;
       margin-top: 70px;
     }
@@ -268,6 +280,9 @@ const HeroBoxes = styled.div`
   justify-content: space-between;
   .box {
     max-width: 200px;
+    @media only screen and (max-width: 700px) {
+      margin-bottom: 40px;
+    }
     @media only screen and (max-width: 600px) {
       max-width: 100%;
       margin-bottom: 40px;
@@ -282,9 +297,7 @@ const HeroBoxes = styled.div`
     img {
       width: 100%;
       transition: 0.2s ease-in-out all;
-      @media only screen and (max-width: 600px) {
-        border: 1px solid #d4d4d4;
-      }
+      border: 1px solid #d4d4d4;
     }
     &:hover {
       img {
