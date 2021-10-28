@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ncl/static/css/main.cfe683e6.chunk.css",
-    "main.js": "/ncl/static/js/main.9fcca831.chunk.js",
-    "main.js.map": "/ncl/static/js/main.9fcca831.chunk.js.map",
+    "main.js": "/ncl/static/js/main.11984075.chunk.js",
+    "main.js.map": "/ncl/static/js/main.11984075.chunk.js.map",
     "runtime-main.js": "/ncl/static/js/runtime-main.1d478ba9.js",
     "runtime-main.js.map": "/ncl/static/js/runtime-main.1d478ba9.js.map",
     "static/js/2.19852599.chunk.js": "/ncl/static/js/2.19852599.chunk.js",
@@ -21,7 +21,8 @@
     "static/media/fact-3.15305fcc.png": "/ncl/static/media/fact-3.15305fcc.png",
     "static/media/fact-4.a8a02d44.png": "/ncl/static/media/fact-4.a8a02d44.png",
     "static/media/fact-5.1465af1f.png": "/ncl/static/media/fact-5.1465af1f.png",
-    "static/media/hero-bg.fe594cac.jpg": "/ncl/static/media/hero-bg.fe594cac.jpg",
+    "static/media/hero-desktop.69367f18.jpg": "/ncl/static/media/hero-desktop.69367f18.jpg",
+    "static/media/hero-mobile.f22e4a23.jpg": "/ncl/static/media/hero-mobile.f22e4a23.jpg",
     "static/media/listen.c5eaa077.png": "/ncl/static/media/listen.c5eaa077.png",
     "static/media/logo-transparent.f20a18a2.png": "/ncl/static/media/logo-transparent.f20a18a2.png",
     "static/media/read.7873cbac.png": "/ncl/static/media/read.7873cbac.png",
@@ -32,6 +33,6 @@
     "static/js/runtime-main.1d478ba9.js",
     "static/js/2.19852599.chunk.js",
     "static/css/main.cfe683e6.chunk.css",
-    "static/js/main.9fcca831.chunk.js"
+    "static/js/main.11984075.chunk.js"
   ]
 }
