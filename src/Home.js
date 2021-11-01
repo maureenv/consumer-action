@@ -57,22 +57,22 @@ const claims = [
   {
     img: fact2,
     claim: 'All cartons are recyclable.',
-    fact: 'Cartons are composed of three layers: cardboard, plastic, and aluminum. This makes them very difficult to recycle, so only about 60 percent of American cities accept cartons for recycling. Even the programs that do send some cartons to the landfill.'
+    fact: 'Cartons are composed of three layers: cardboard, plastic, and aluminum. This makes them very difficult to recycle, so only about 60 percent of American recycling programs accept cartons for recycling. Even the programs that do, send some cartons to the landfill.'
   },
   {
     img: fact3,
     claim: 'Recycled plastic containers end up as new plastic containers.',
-    fact: 'Most recycled plastic is downcycled into single-use plastic, and then landfilled.'
+    fact: 'Most recycled plastic is downcycled into hard to recycle products (e.g., t-shirts and carpet), and then landfilled.'
   },
   {
     img: fact4,
     claim: 'Recycled plastic products are better for the environment.',
-    fact: 'Recycled plastic products require new, “virgin” plastic to be made, which is typically produced from petroleum. Plastics harm the environment when made and when discarded.'
+    fact: 'Virgin plastic, which is typically produced from petroleum, is required to make products that incorporate recycled plastic. Plastics harm the environment when made and when discarded.'
   },
   {
     img: fact5,
     claim: 'Plastic is endlessly recyclable.',
-    fact: 'Metal and glass are endlessly recyclable. Plastic isn’t. It degrades, is downcycled into an item of lower quality, and can eventually enter food and water supplies as microplastics.'
+    fact: 'Metal and glass are endlessly recyclable. Plastic isn’t. It degrades, is often downcycled into an item of lower quality, and can eventually enter food and water supplies as microplastics.'
   }
 ]
 
