@@ -107,7 +107,7 @@ const Home = () => {
   const [showMore, setShowMore] = useState(false)
 
   return (
-    <div>
+    <div style={{ background: '#f9f7fa' }}>
       <HeroSection bg={ trashBG }>
         <HeroSectionInner>
           <img src={logo} className="logo" alt="logo" />
@@ -133,50 +133,30 @@ const Home = () => {
             <Title color="#fff">In the Bin and Beyond:</Title>
             <Subtitle>What Really Happens to Your Packaging After the Recycling Bin</Subtitle>
             <VideoContainer>
-              <IFrameContainer>
+              {/*<IFrameContainer>
                 <iframe src="https://www.youtube.com/embed/4o9-FkSHGWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </IFrameContainer>
+              </IFrameContainer>*/}
             </VideoContainer>
           </Fade>
         </VideoSectionInner>
       </VideoSection>
       <ClaimsSection>
         <Fade bottom>
-          <Title marginBottom="35px" color={ colors.darkBlue }>Recycling Claims <span style={{ color: colors.red }}>Debunked</span></Title>
+          <Title marginBottom="30px" color={ colors.darkBlue }>Recycling Claims <span style={{ color: colors.red }}>Debunked</span></Title>
           {/* mobile view */}
-          <MediaQuery query='(max-width: 801px)'>
             <ClaimsContainer>
-              { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
+              { claims.slice(0, showMore ? claims.length : 3 ).map( c =>
                 <ClaimMobile key={ c.claim }>
                   <div className="img-container">
                     <img src={ c.img } alt="National Consumer League"/>
                   </div>
                   <p className="myth-title">Myth</p>
                   <p className="myth-description">{ c.claim }</p>
-                  <div className="divider-line"/>
                   <p className="facts-title">Fact</p>
                   <p className="facts-description">{ c.fact }</p>
                 </ClaimMobile>
               )}
             </ClaimsContainer>
-          </MediaQuery>
-          <MediaQuery query='(min-width: 800px)'>
-            <ClaimsContainer>
-              <ClaimTitle>
-                <p style={{ color: colors.darkBlue }}>Myths</p>
-                <p style={{ color: colors.red }}>Facts</p>
-              </ClaimTitle>
-              { claims.slice(0, showMore ? claims.length : 2 ).map( c =>
-                <Claim key={ c.claim }>
-                  <p className="claim">{ c.claim }</p>
-                  <div className="img-container">
-                    <img src={ c.img } alt="National Consumer League"/>
-                  </div>
-                  <p>{ c.fact }</p>
-                </Claim>
-              )}
-            </ClaimsContainer>
-          </MediaQuery>
           <button onClick={ () => setShowMore(!showMore) } className="see-more">{ showMore ? 'Hide Myths' : 'See More Myths'}</button>
         </Fade>
       </ClaimsSection>
@@ -391,6 +371,9 @@ const VideoSectionInner = styled.div`
 const VideoContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 20px;
+  background: black;
+  height: 400px;
 `
 
 const IFrameContainer = styled.div`
@@ -452,6 +435,9 @@ const ClaimsSection = styled.div`
 
 const ClaimsContainer = styled.div`
   max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
   @media only screen and (max-width: 700px) {
     margin-top: 20px;
   }
@@ -514,8 +500,10 @@ const ClaimMobile = styled.div`
   flex-direction: column;
   text-align: center;
   border-radius: 4px;
+  max-width: 270px;
+  margin: 0 10px;
   background: rgb(19,51,122);
-  background: linear-gradient(180deg, rgba(19,51,122,1) 0%, rgba(187,11,14,1) 100%);
+  background: linear-gradient(180deg, #041846 0%, #13337a 100%);
   padding: 30px 20px;
   color: #fff;
   margin-bottom: 50px;
@@ -531,6 +519,12 @@ const ClaimMobile = styled.div`
     line-height: 1.4;
     font-size: 16px;
   }
+  .myth-description {
+    min-height: 50px;
+    border-bottom: 1px solid #6daedf;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
   .img-container {
     margin-top: -60px;
     margin-bottom: 20px;
@@ -545,6 +539,10 @@ const ClaimMobile = styled.div`
     height: 2px;
     background: #fff;
     margin: 20px 0;
+  }
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+    max-width: 100%;
   }
 `
 
