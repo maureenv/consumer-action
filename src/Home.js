@@ -52,12 +52,12 @@ const claims = [
   {
     img: fact1,
     claim: 'The recycling triangle on a container means it can be recycled.',
-    fact: 'Metal and glass can be recycled whether or not they have recycling triangles on them. On some plastics and cartons, it indicates the type of resin used in manufacturing, not that it can be recycled.'
+    fact: 'Metal and glass can be recycled whether or not they have recycling triangles on them. On some plastics and cartons, a triangle indicates the type of resin used in manufacturing, not that it can be recycled. Additionally, what types of materials American recycling programs accept and recycle may be based on location.'
   },
   {
     img: fact2,
     claim: 'All cartons are recyclable.',
-    fact: 'Cartons are composed of three layers: cardboard, plastic, and aluminum. This makes them very difficult to recycle, so only about 60 percent of American recycling programs accept cartons for recycling. Even the programs that do, send some cartons to the landfill.'
+    fact: 'Cartons are actually difficult to recycle because they are composed of three layers: cardboard, plastic, and aluminum. Only about 60 percent of American recycling programs accept cartons, and some of them end up sending cartons to a landfill.'
   },
   {
     img: fact3,
@@ -89,12 +89,12 @@ const resources = [
   },
   {
     img: trash,
-    title: 'The Story of Stuff: Where Your Recycled Plastic Ends Up',
+    title: 'The Story of Stuff: Where your recycled plastic ends up',
     link: 'https://www.youtube.com/watch?v=urFZ5o0az_4'
   },
   {
     img: oil,
-    title: 'How Big Oil Misled the Public Into Believing Plastic Would be Recycled',
+    title: 'How Big Oil misled the public into believing plastic would be recycled',
     link: 'https://www.npr.org/2020/09/11/897692090/how-big-oil-misled-the-public-into-believing-plastic-would-be-recycled'
   }
 ]
@@ -437,6 +437,7 @@ const ClaimsContainer = styled.div`
   max-width: 1000px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-top: 40px;
   @media only screen and (max-width: 700px) {
     margin-top: 20px;
@@ -509,6 +510,7 @@ const ClaimMobile = styled.div`
   margin-bottom: 50px;
   .myth-title,
   .facts-title {
+    color: ${ colors.lightBlue };
     font-family: 'black';
     font-size: 20px;
     margin-bottom: 10px;

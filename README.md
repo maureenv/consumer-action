@@ -5,5 +5,7 @@ Since it's no longer on github pages do `npm run build` to deploy. Then move bui
 
 https://www.youtube.com/watch?v=Ey_90l9GaAw
 
+add custom domain: https://www.youtube.com/watch?v=qlrCptpwtgs
+
 Instructions on how to deploy with github pages:
 https://create-react-app.dev/docs/deployment/ (scroll down to github pages section)
