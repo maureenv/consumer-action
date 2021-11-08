@@ -52,7 +52,7 @@ const claims = [
   {
     img: fact1,
     claim: 'The recycling triangle on a container means it can be recycled.',
-    fact: 'Metal and glass can be recycled whether or not they have recycling triangles on them. On some plastics and cartons, a triangle indicates the type of resin used in manufacturing, not that it can be recycled. Additionally, what types of materials American recycling programs accept and recycle may be based on location.'
+    fact: 'Metal and glass can be recycled whether or not they have recycling triangles on them. On some plastics and cartons, a triangle indicates the type of resin used in manufacturing, not that it can be recycled. Additionally, what types of packaging American recycling programs accept and recycle varies based on location.'
   },
   {
     img: fact2,
