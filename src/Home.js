@@ -133,9 +133,9 @@ const Home = () => {
             <Title color="#fff">In the Bin and Beyond:</Title>
             <Subtitle>What Really Happens to Your Packaging After the Recycling Bin</Subtitle>
             <VideoContainer>
-              {/*<IFrameContainer>
-                <iframe src="https://www.youtube.com/embed/4o9-FkSHGWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </IFrameContainer>*/}
+              <IFrameContainer>
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/644067963?h=b70d79a2a7" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+              </IFrameContainer>
             </VideoContainer>
           </Fade>
         </VideoSectionInner>
@@ -372,8 +372,6 @@ const VideoContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
   margin-top: 20px;
-  background: black;
-  height: 400px;
 `
 
 const IFrameContainer = styled.div`
