@@ -134,7 +134,7 @@ const Home = () => {
             <Subtitle>What Really Happens to Your Packaging After the Recycling Bin</Subtitle>
             <VideoContainer>
               <IFrameContainer>
-                <iframe title="vimeo-player" src="https://player.vimeo.com/video/644067963?h=b70d79a2a7" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://player.vimeo.com/video/644067963?h=b70d79a2a7&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
               </IFrameContainer>
             </VideoContainer>
           </Fade>
